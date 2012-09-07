@@ -1,0 +1,111 @@
+package fun_v01;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+
+/**
+ * Ésta clase crea los tiles que componen el tilemap del juego.
+ * @author Néstor Villalobos
+ */
+public class funTile extends funObject{
+    
+    //*******************************ATRIBUTOS*******************************//
+    //***********************************************************************//
+    //***********************************************************************//
+    
+    private int id;
+    private BufferedImage imagen;
+    
+    //******************************CONSTRUCTOR******************************//
+    //***********************************************************************//
+    //***********************************************************************//
+
+    /**
+     * El constructor de funTile.
+     * @param ancho Ancho del objeto.
+     * @param alto Alto del objeto.
+     * @param posX Posición en coordenada X del objeto.
+     * @param posY Posición en coordenada Y del objeto.
+     */
+    public funTile(int ancho, int alto, int posX, int posY) {
+        super(ancho, alto, posX, posY);
+        setId(-1);
+        setImagen(null);
+        crear();
+    }
+
+    //*****************************OTROS MÈTODOS*****************************//
+    //***********************************************************************//
+    //***********************************************************************//
+    
+    @Override
+    public void crear() {
+    }
+
+    @Override
+    public void ejecutor() {
+    }
+    
+    @Override
+    public void actualizar() {
+<<<<<<< .mine
+        
+=======
+      //  repaint();
+>>>>>>> .r17
+    }
+    
+    @Override
+    public void paint(Graphics g) {
+        
+        Graphics2D g2d = (Graphics2D) g;
+        
+        g2d.drawImage(getImagen(), 0, 0, getAncho(), getAlto(), null);
+        
+        
+        if(isDebug()){  
+            Rectangle2D rect = new Rectangle2D.Double(0, 0, getHitbox().getWidth(), getHitbox().getHeight());            
+            g2d.setStroke(new BasicStroke(2));
+            if(isTieneColisiones()) g2d.setColor(Color.red);
+            else g2d.setColor(Color.blue);
+            g2d.draw(rect);
+        }
+    }
+
+    //******************************GETS-&-SETS******************************//
+    //***********************************************************************//
+    //***********************************************************************//
+    
+    
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the imagen
+     */
+    public BufferedImage getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(BufferedImage imagen) {
+        this.imagen = imagen;
+    }
+}
